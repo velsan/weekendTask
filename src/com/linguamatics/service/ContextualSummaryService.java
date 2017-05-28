@@ -28,16 +28,15 @@ public class ContextualSummaryService {
 
     private final ContextConfineService contextConfineService;
 
-    //        call the context writing method
     public void processContextSummary(String positionsFile, String sourceTextFile) {
         final LinkedList<PhrasePosition> wordPositions = phrasePositionFactory.parsePhrasePositionsFromCSV(positionsFile);
-        writeContext(wordPositions, sourceTextFile);
+        writeContext(wordPositions, new File(sourceTextFile));
     }
 
     //    this parameter will be linked list
-    public void writeContext(List<PhrasePosition> phrasePositions, String sourceTextFile) {
+    public void writeContext(List<PhrasePosition> phrasePositions, File sourceTextFile) {
         final List<PhrasePosition> mergedAndSortedPhrasePositions = mergeAndSortPhrasePositions(phrasePositions);
-        final List<Sentence> sentences = sentenceFactory.parseFileToSentences(new File(sourceTextFile), mergedAndSortedPhrasePositions);
+        final List<Sentence> sentences = sentenceFactory.parseFileToSentences(sourceTextFile, mergedAndSortedPhrasePositions);
 
         String contextualSummary = processContextualSummaryForText(mergedAndSortedPhrasePositions, sentences);
         contextualSummary = contextConfineService.processContextForOutputBeginning(contextualSummary);

@@ -27,8 +27,7 @@ public class PhrasePositionFactory {
                     })
                     .collect(Collectors.toCollection(LinkedList::new));
         } catch (IOException e) {
-//            e.printStackTrace();
-            throw new RuntimeException("I/O error occured during  opening the file", e);
+            throw new RuntimeException("I/O error occurred during opening the input file with phrases positions", e);
         }
     }
 }

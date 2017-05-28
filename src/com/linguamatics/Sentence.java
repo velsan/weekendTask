@@ -26,7 +26,7 @@ public class Sentence {
 
     private final List<PhrasePosition> phrasePositions;
 
-    private String[] words;
+    private final String[] words;
 
     public String[] getWords(){
         return words;

@@ -54,7 +54,7 @@ public class SentenceFactory {
             scanner.useDelimiter(SENTENCE_END_REGEX);
             return scanner;
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("I/O error occurred during opening the source file" , e);
         }
     }
 

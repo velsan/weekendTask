@@ -2,7 +2,6 @@ package com.linguamatics.factory;
 
 import com.linguamatics.PhrasePosition;
 import com.linguamatics.Sentence;
-import com.linguamatics.factory.SentenceFactory;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,8 +30,8 @@ public class SentenceFactoryTest {
 
     @Test
     public void should_find_sentences_near_matches() throws Exception {
-        final File input = new File(ClassLoader.getSystemResource("csv/simple.csv").getPath());
-        final List<PhrasePosition> phrasePositions = asList(new PhrasePosition(6l, 1), new PhrasePosition(8l, 1));
+        final File input = new File(ClassLoader.getSystemResource("internalTests/sourceTextFiles/simple.csv").getPath());
+        final List<PhrasePosition> phrasePositions = asList(new PhrasePosition(6L, 1), new PhrasePosition(8L, 1));
         final List<Sentence> sentences = sentenceFactory.parseFileToSentences(input, phrasePositions);
 
         assertThat(sentences, is(notNullValue()));
@@ -41,8 +40,8 @@ public class SentenceFactoryTest {
 
     @Test
     public void should_find_multiple_sentences_near_matches() throws Exception {
-        final File input = new File(ClassLoader.getSystemResource("csv/source.csv").getPath());
-        final List<PhrasePosition> phrasePositions = asList(new PhrasePosition(6l, 1), new PhrasePosition(8l, 1), new PhrasePosition(23l, 2), new PhrasePosition(38l, 1));
+        final File input = new File(ClassLoader.getSystemResource("internalTests/sourceTextFiles/source.csv").getPath());
+        final List<PhrasePosition> phrasePositions = asList(new PhrasePosition(6L, 1), new PhrasePosition(8L, 1), new PhrasePosition(23L, 2), new PhrasePosition(38L, 1));
         final List<Sentence> sentences = sentenceFactory.parseFileToSentences(input, phrasePositions);
 
         assertThat(sentences, is(notNullValue()));
@@ -53,8 +52,8 @@ public class SentenceFactoryTest {
 
     @Test
     public void should_skip_irrelevant_and_find_sentences_near_matches() throws Exception {
-        final File input = new File(ClassLoader.getSystemResource("csv/source-longer.csv").getPath());
-        final List<PhrasePosition> phrasePositions = asList(new PhrasePosition(6l, 1), new PhrasePosition(8l, 1), new PhrasePosition(23l, 2), new PhrasePosition(44l, 1));
+        final File input = new File(ClassLoader.getSystemResource("internalTests/sourceTextFiles/source-longer.csv").getPath());
+        final List<PhrasePosition> phrasePositions = asList(new PhrasePosition(6L, 1), new PhrasePosition(8L, 1), new PhrasePosition(23L, 2), new PhrasePosition(44L, 1));
         final List<Sentence> sentences = sentenceFactory.parseFileToSentences(input, phrasePositions);
 
         assertThat(sentences, is(notNullValue()));
@@ -65,7 +64,7 @@ public class SentenceFactoryTest {
 
     @Test
     public void should_have_correct_sentence_starts(){
-        final File input = new File(ClassLoader.getSystemResource("csv/twoWords.csv").getPath());
+        final File input = new File(ClassLoader.getSystemResource("internalTests/sourceTextFiles/twoWords.csv").getPath());
         final List<PhrasePosition> phrasePositions = asList(new PhrasePosition(0L, 1), new PhrasePosition(2L, 1));
         final List<Sentence> sentences = sentenceFactory.parseFileToSentences(input, phrasePositions);
 
