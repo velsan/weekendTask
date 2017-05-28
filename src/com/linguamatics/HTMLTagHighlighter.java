@@ -19,14 +19,14 @@ public abstract class HTMLTagHighlighter {
 
     /**
      * @param sentence Sentence in which to highlight given phrases
-     * @param phrasePositions positions of phrases to be highlighted
      * @return
      */
-    public Sentence addTagToPhrases(Sentence sentence, List<PhrasePosition> phrasePositions) {
+    public Sentence addTagToPhrases(Sentence sentence) {
         final String[] sentenceWords = sentence.getWords();
         final Integer wordCount = sentence.getWordCount();
+        final List<PhrasePosition> sentencePhrasePositions = sentence.getPhrasePositions();
 
-        phrasePositions.forEach(phrasePosition -> {
+        sentencePhrasePositions.forEach(phrasePosition -> {
             final int phraseStartPosition = (int) (phrasePosition.getStartPosition() - sentence.getSentenceStart());
             int phraseEndPosition = (int) (phrasePosition.getEndPosition() - sentence.getSentenceStart());
 
@@ -41,6 +41,6 @@ public abstract class HTMLTagHighlighter {
             sentenceWords[phraseEndPosition] = phraseToHighlightEnd + "</" + getTag() +">";
         });
 
-        return new Sentence(stream(sentenceWords).collect(joining(" ")), sentence.getSentenceStart());
+        return new Sentence(stream(sentenceWords).collect(joining(" ")), sentence.getSentenceStart(), sentencePhrasePositions);
     }
 }

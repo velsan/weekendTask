@@ -6,8 +6,9 @@ public class Sentence {
 
     private static final String WHITESPACE_REGEX = "\\s+";
 
-    public Sentence(String text, Long sentenceStart) {
+    public Sentence(String text, Long sentenceStart, List<PhrasePosition> phrasePositions) {
         this.text = text;
+        this.phrasePositions = phrasePositions;
         this.words = text.split(WHITESPACE_REGEX);
         this.sentenceStart = sentenceStart == null ? -1 : sentenceStart;
     }
@@ -23,7 +24,7 @@ public class Sentence {
 
     private final Long sentenceStart;
 
-    private List<PhrasePosition> phrasePositions;
+    private final List<PhrasePosition> phrasePositions;
 
     private String[] words;
 

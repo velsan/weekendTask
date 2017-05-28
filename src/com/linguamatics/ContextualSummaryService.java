@@ -1,7 +1,6 @@
 package com.linguamatics;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -56,8 +55,8 @@ public class ContextualSummaryService {
         if (sentencePhrases.isEmpty()) {
             return "";
         }
-        final Sentence sentenceWithHighlightedWords = boldTagHighlighter.addTagToPhrases(sentence, sentencePhrases);
-        return contextConfineService.confineContextForSentence(sentenceWithHighlightedWords, sentencePhrases);
+        final Sentence sentenceWithHighlightedWords = boldTagHighlighter.addTagToPhrases(sentence);
+        return contextConfineService.confineContextForSentence(sentenceWithHighlightedWords);
     }
 
     private List<PhrasePosition> getPhrasesForSentence(Sentence sentence, List<PhrasePosition> phrasePositions) {

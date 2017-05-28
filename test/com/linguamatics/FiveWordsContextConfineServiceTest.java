@@ -20,19 +20,19 @@ public class FiveWordsContextConfineServiceTest {
 
     @Test
     public void should_confine_one_sentence(){
-        final Sentence sentence = new Sentence("We went to the town and saw Jim and Bob in the bar drinking beer", 0L);
         final List<PhrasePosition> phrasePositions = Arrays.asList(new PhrasePosition(7L, 1));
-        String contextForSentence = contextConfineService.confineContextForSentence(sentence, phrasePositions);
+        final Sentence sentence = new Sentence("We went to the town and saw Jim and Bob in the bar drinking beer", 0L, phrasePositions);
+        String contextForSentence = contextConfineService.confineContextForSentence(sentence);
         contextForSentence = contextConfineService.processContextForOutputBeginning(contextForSentence);
         assertThat(contextForSentence, is("to the town and saw Jim and Bob in the bar ..."));
     }
 
     @Test
     public void should_confine_two_sentences(){
-        final Sentence sentence = new Sentence("We went to the town and saw Jim . And Bob in the bar drinking beer and juice", 0L);
         final List<PhrasePosition> phrasePositions = Arrays.asList(new PhrasePosition(7L, 1),new PhrasePosition(10L, 1));
+        final Sentence sentence = new Sentence("We went to the town and saw Jim . And Bob in the bar drinking beer and juice", 0L,phrasePositions);
 
-        String contextForSentence = contextConfineService.confineContextForSentence(sentence, phrasePositions);
+        String contextForSentence = contextConfineService.confineContextForSentence(sentence);
         contextForSentence = contextConfineService.processContextForOutputBeginning(contextForSentence);
         assertThat(contextForSentence, is("to the town and saw Jim . And Bob in the bar drinking beer ..."));
     }

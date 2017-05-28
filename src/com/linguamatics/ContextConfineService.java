@@ -13,14 +13,15 @@ public abstract class ContextConfineService {
     }
 
 
-    public String confineContextForSentence(Sentence sentence, List<PhrasePosition> phrasePositions){
+    public String confineContextForSentence(Sentence sentence){
         boolean[] wordsIncluded = new boolean[sentence.getWordCount()];
 
+        final List<PhrasePosition> sentencePhrasePositions = sentence.getPhrasePositions();
         final Long sentenceEnd = sentence.getSentenceEnd();
         final Long sentenceStart = sentence.getSentenceStart();
         final int contextWidth = getContextWidth();
 
-        phrasePositions.forEach(phrasePosition -> {
+        sentencePhrasePositions.forEach(phrasePosition -> {
             final Long phraseStart= phrasePosition.getStartPosition();
             final Long phraseEnd = phrasePosition.getEndPosition();
             int contextStart = (int) (Math.max(sentenceStart, phraseStart - contextWidth) - sentenceStart);
