@@ -1,5 +1,8 @@
-package com.linguamatics;
+package com.linguamatics.factory;
 
+import com.linguamatics.PhrasePosition;
+import com.linguamatics.Sentence;
+import com.linguamatics.factory.SentenceFactory;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SentenceFactoryTest {
 
-    private  SentenceFactory sentenceFactory;
+    private SentenceFactory sentenceFactory;
 
     @Before
     public void init(){

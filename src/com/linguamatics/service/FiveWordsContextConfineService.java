@@ -1,5 +1,7 @@
-package com.linguamatics;
+package com.linguamatics.service;
 
+
+import com.linguamatics.service.ContextConfineService;
 
 public class FiveWordsContextConfineService extends ContextConfineService {
 

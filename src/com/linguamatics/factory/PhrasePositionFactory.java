@@ -1,4 +1,6 @@
-package com.linguamatics;
+package com.linguamatics.factory;
+
+import com.linguamatics.PhrasePosition;
 
 import java.io.IOException;
 import java.nio.file.Files;

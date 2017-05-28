@@ -1,11 +1,11 @@
-package com.linguamatics;
+package com.linguamatics.service;
 
+import com.linguamatics.service.ContextualSummaryService;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.LinkedList;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;

@@ -1,5 +1,9 @@
-package com.linguamatics;
+package com.linguamatics.service;
 
+import com.linguamatics.PhrasePosition;
+import com.linguamatics.Sentence;
+import com.linguamatics.service.ContextConfineService;
+import com.linguamatics.service.FiveWordsContextConfineService;
 import org.junit.Before;
 import org.junit.Test;
 

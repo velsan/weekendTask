@@ -1,6 +1,7 @@
-package com.linguamatics;
+package com.linguamatics.util;
 
-import org.junit.Before;
+import com.linguamatics.PhrasePosition;
+import com.linguamatics.util.PhrasePositionUtil;
 import org.junit.Test;
 
 import java.util.List;

@@ -1,4 +1,7 @@
-package com.linguamatics;
+package com.linguamatics.service;
+
+import com.linguamatics.PhrasePosition;
+import com.linguamatics.Sentence;
 
 import java.util.List;
 

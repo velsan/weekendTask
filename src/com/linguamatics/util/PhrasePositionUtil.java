@@ -1,4 +1,6 @@
-package com.linguamatics;
+package com.linguamatics.util;
+
+import com.linguamatics.PhrasePosition;
 
 import java.util.ArrayList;
 import java.util.List;

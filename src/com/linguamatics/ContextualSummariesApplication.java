@@ -1,5 +1,7 @@
 package com.linguamatics;
 
+import com.linguamatics.service.ContextualSummaryService;
+
 public class ContextualSummariesApplication {
 
     //    will take filepath of the source text (mandatory)

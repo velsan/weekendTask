@@ -1,9 +1,12 @@
-package com.linguamatics;
+package com.linguamatics.service;
 
+import com.linguamatics.PhrasePosition;
+import com.linguamatics.Sentence;
+import com.linguamatics.service.BoldHTMLTagHighlighter;
+import com.linguamatics.service.HTMLTagHighlighter;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

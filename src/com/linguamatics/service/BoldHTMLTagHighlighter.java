@@ -1,10 +1,12 @@
-package com.linguamatics;
+package com.linguamatics.service;
+
+import com.linguamatics.service.HTMLTagHighlighter;
 
 /**
  * Highlights phrases in a sentence with a <b>bold style</b>
  * {@see HTMLTagHighlighter}
  */
-public class BoldHTMLTagHighlighter extends HTMLTagHighlighter{
+public class BoldHTMLTagHighlighter extends HTMLTagHighlighter {
 
     private static final String  HTML_BOLD_TAG_NAME = "b";
 

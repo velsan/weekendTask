@@ -1,30 +1,26 @@
-package com.linguamatics;
+package com.linguamatics.factory;
+
+import com.linguamatics.PhrasePosition;
+import com.linguamatics.Sentence;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static java.util.stream.Collectors.joining;
-
 public class SentenceFactory {
 
     private static final String WHITESPACE_REGEX = "\\s+";
+    private static final String SENTENCE_END_REGEX = "\\s+\\.\\s+";
 
     public List<Sentence> parseFileToSentences(File input, List<PhrasePosition> phrasePositions) {
-        phrasePositions = new PhrasePositionUtil().mergeAndSortPhrasePositions(phrasePositions);
-
         final Scanner inputScanner = getSentenceScanner(input);
         final List<Sentence> sentences = new ArrayList<>();
         int sentenceStart = 0;
         while (inputScanner.hasNext()) {
             String sentenceText = inputScanner.next();
-            String[] words = sentenceText.split("\\s+");
+            String[] words = sentenceText.split(WHITESPACE_REGEX);
             List<PhrasePosition> matchingPhrasePositions = matchingPhrasePositions(sentenceStart, words.length, phrasePositions);
             if (matchingPhrasePositions.size() > 0) {
                 final Sentence sentence = new Sentence(sentenceStart, words, matchingPhrasePositions);
@@ -55,7 +51,7 @@ public class SentenceFactory {
     private Scanner getSentenceScanner(File input) {
         try {
             Scanner scanner = new Scanner(input);
-            scanner.useDelimiter("\\s+\\.\\s+");
+            scanner.useDelimiter(SENTENCE_END_REGEX);
             return scanner;
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

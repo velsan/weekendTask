@@ -1,10 +1,14 @@
-package com.linguamatics;
+package com.linguamatics.service;
+
+import com.linguamatics.*;
+import com.linguamatics.factory.PhrasePositionFactory;
+import com.linguamatics.factory.SentenceFactory;
 
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.linguamatics.PhrasePositionUtil.mergeAndSortPhrasePositions;
+import static com.linguamatics.util.PhrasePositionUtil.mergeAndSortPhrasePositions;
 import static java.util.stream.Collectors.toList;
 
 public class ContextualSummaryService {
