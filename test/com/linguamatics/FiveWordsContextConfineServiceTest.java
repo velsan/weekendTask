@@ -20,7 +20,7 @@ public class FiveWordsContextConfineServiceTest {
 
     @Test
     public void should_confine(){
-        final Sentence sentence = new Sentence("We went to the town and saw Jim and Bob in the bar drinking beer", 14L);
+        final Sentence sentence = new Sentence("We went to the town and saw Jim and Bob in the bar drinking beer", 0L);
         final List<PhrasePosition> phrasePositions = Arrays.asList(new PhrasePosition(7L, 1));
         String contextForSentence = contextConfineService.confineContextForSentence(sentence, phrasePositions);
         contextForSentence = contextConfineService.processContextForOutputBeginning(contextForSentence);

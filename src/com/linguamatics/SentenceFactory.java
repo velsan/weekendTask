@@ -9,9 +9,6 @@ import java.util.List;
 
 import static java.util.stream.Collectors.joining;
 
-/**
- * Created by vojtech on 28/05/17.
- */
 public class SentenceFactory {
 
     private static final String WHITESPACE_REGEX = "\\s+";
@@ -21,15 +18,13 @@ public class SentenceFactory {
         return parseTextToSentences(text);
     }
 
-    //    The list contains item for each sentence. Key is position of last word in the sentence, value is the sentence
     public List<Sentence> parseTextToSentences(String text) {
-        final String[] sentences = text.split("\\s+\\.\\s+");
+        final String[] sentences = text.split(WHITESPACE_REGEX + "\\." + WHITESPACE_REGEX);
         final List<Sentence> sentencesWithEndPositions = new ArrayList<>();
-        long lastWordNumber = 0;
+        long firstWordNumber = 0;
         for (String sentence : sentences) {
-            lastWordNumber += sentence.split(WHITESPACE_REGEX).length;
-            sentencesWithEndPositions.add(new Sentence(sentence, lastWordNumber));
-            lastWordNumber++;
+            sentencesWithEndPositions.add(new Sentence(sentence, firstWordNumber));
+            firstWordNumber += sentence.split(WHITESPACE_REGEX).length + 1;
         }
         return sentencesWithEndPositions;
     }

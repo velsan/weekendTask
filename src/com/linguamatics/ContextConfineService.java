@@ -9,7 +9,7 @@ public abstract class ContextConfineService {
             return contextualSummary.substring(3);
         }
 
-        return contextualSummary;
+        return contextualSummary.trim();
     }
 
 
