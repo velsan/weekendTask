@@ -2,6 +2,9 @@ package com.linguamatics;
 
 import java.util.List;
 
+/**
+ * Represents a sentence with a phrase inside which is to be highlighted
+ */
 public class Sentence {
 
     private static final String WHITESPACE_REGEX = "\\s+";
@@ -19,12 +22,24 @@ public class Sentence {
         this.phrasePositions = phrasePositions;
     }
 
+    /**
+     * Text of the sentence
+     */
     private String text;
 
+    /**
+     * Position of the first word of this sentence
+     */
     private final Long sentenceStart;
 
+    /**
+     * {@see PhrasePosition} which can be found inside the text of this sentence
+     */
     private final List<PhrasePosition> phrasePositions;
 
+    /**
+     * Words of the sentence
+     */
     private final String[] words;
 
     public String[] getWords(){

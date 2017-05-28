@@ -1,7 +1,7 @@
 package com.linguamatics;
 
 /**
- * Created by vojtech on 28/05/17.
+ * Represents a phrase to be highlighted
  */
 public class PhrasePosition {
 
