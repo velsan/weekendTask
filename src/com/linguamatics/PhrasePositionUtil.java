@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class PhrasePositionUtil {
 
-    public List<PhrasePosition> mergeAndSortPhrasePositions(List<PhrasePosition> phrasePositions) {
+    public  static List<PhrasePosition> mergeAndSortPhrasePositions(List<PhrasePosition> phrasePositions) {
         final List<PhrasePosition> sortedPositions = phrasePositions.stream()
                 .sorted((a, b) -> a.getStartPosition() == b.getStartPosition() ?
                         a.getEndPosition() <= b.getEndPosition() ? -1 : 1 :
@@ -14,7 +14,7 @@ public class PhrasePositionUtil {
         return mergePositions(sortedPositions);
     }
 
-    private List<PhrasePosition> mergePositions(List<PhrasePosition> sortedPositions) {
+    private static List<PhrasePosition> mergePositions(List<PhrasePosition> sortedPositions) {
         final List<PhrasePosition> merged = new ArrayList<>();
         int nextPosition = 0;
         while (nextPosition < sortedPositions.size()) {
@@ -23,7 +23,7 @@ public class PhrasePositionUtil {
         return merged;
     }
 
-    private int mergeOverlapping(List<PhrasePosition> sortedPositions, List<PhrasePosition> merged, int position) {
+    private static int mergeOverlapping(List<PhrasePosition> sortedPositions, List<PhrasePosition> merged, int position) {
         PhrasePosition currentPhrasePosition = sortedPositions.get(position);
         int j = position + 1;
         while (j < sortedPositions.size() && currentPhrasePosition.getEndPosition() >= sortedPositions.get(j).getStartPosition()) {
@@ -34,7 +34,7 @@ public class PhrasePositionUtil {
         return j;
     }
 
-    protected PhrasePosition merge(PhrasePosition first, PhrasePosition second) {
+    protected static PhrasePosition merge(PhrasePosition first, PhrasePosition second) {
         return new PhrasePosition(first.getStartPosition(), (int) (second.getEndPosition() - first.getStartPosition() + 1));
     }
 }

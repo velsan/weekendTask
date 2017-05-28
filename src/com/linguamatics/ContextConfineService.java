@@ -6,7 +6,7 @@ public abstract class ContextConfineService {
 
     public String processContextForOutputBeginning(String contextualSummary){
         if(contextualSummary.startsWith(getReplacementStyle())){
-            return contextualSummary.substring(3);
+            return contextualSummary.substring(getReplacementStyle().length()).trim();
         }
 
         return contextualSummary.trim();

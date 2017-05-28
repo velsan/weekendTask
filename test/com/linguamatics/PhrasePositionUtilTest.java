@@ -12,17 +12,10 @@ import static org.hamcrest.core.IsNull.notNullValue;
 
 public class PhrasePositionUtilTest {
 
-    private PhrasePositionUtil phrasePositionUtil;
-
-    @Before
-    public void init(){
-        this.phrasePositionUtil = new PhrasePositionUtil();
-    }
-
     @Test
     public void should_sort() throws Exception {
         final List<PhrasePosition> phrasePositions = asList(new PhrasePosition(3l, 1), new PhrasePosition(1l, 1));
-        final List<PhrasePosition> intervals = phrasePositionUtil.mergeAndSortPhrasePositions(phrasePositions);
+        final List<PhrasePosition> intervals = PhrasePositionUtil.mergeAndSortPhrasePositions(phrasePositions);
 
         assertThat(intervals, is(notNullValue()));
         assertThat(2, is(intervals.size()));
@@ -33,16 +26,9 @@ public class PhrasePositionUtilTest {
     }
 
     @Test
-    public void should_merge_overlapping() throws Exception {
-        final PhrasePosition merged = phrasePositionUtil.merge(new PhrasePosition(1l, 3), new PhrasePosition(2l, 3));
-        assertThat(1L, is(merged.getStartPosition()));
-        assertThat(4L, is(merged.getEndPosition()));
-    }
-
-    @Test
     public void should_sort_and_merge_overlapping() {
         final List<PhrasePosition> phrasePositions = asList(new PhrasePosition(4l, 1), new PhrasePosition(1l, 1), new PhrasePosition(1l, 3));
-        final List<PhrasePosition> intervals = phrasePositionUtil.mergeAndSortPhrasePositions(phrasePositions);
+        final List<PhrasePosition> intervals = PhrasePositionUtil.mergeAndSortPhrasePositions(phrasePositions);
 
         assertThat(intervals, is(notNullValue()));
         assertThat(2, is(intervals.size()));
@@ -50,5 +36,12 @@ public class PhrasePositionUtilTest {
         assertThat(3L, is(intervals.get(0).getEndPosition()));
         assertThat(4L, is(intervals.get(1).getStartPosition()));
         assertThat(4L, is(intervals.get(1).getEndPosition()));
+    }
+
+    @Test
+    public void should_merge_overlapping() throws Exception {
+        final PhrasePosition merged = PhrasePositionUtil.merge(new PhrasePosition(1l, 3), new PhrasePosition(2l, 3));
+        assertThat(1L, is(merged.getStartPosition()));
+        assertThat(4L, is(merged.getEndPosition()));
     }
 }

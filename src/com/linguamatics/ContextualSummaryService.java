@@ -1,9 +1,11 @@
 package com.linguamatics;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.linguamatics.PhrasePositionUtil.mergeAndSortPhrasePositions;
 import static java.util.stream.Collectors.toList;
 
 public class ContextualSummaryService {
@@ -30,16 +32,14 @@ public class ContextualSummaryService {
     }
 
     //    this parameter will be linked list
-
     public void writeContext(List<PhrasePosition> phrasePositions, String sourceTextFile) {
-        try {
-            final List<Sentence> sentences = sentenceFactory.parseFileToSentences(sourceTextFile);
-            String contextualSummary = processContextualSummaryForText(phrasePositions, sentences);
-            contextualSummary = contextConfineService.processContextForOutputBeginning(contextualSummary);
-            System.out.println(contextualSummary);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        final List<PhrasePosition> mergedAndSortedPhrasePositions = mergeAndSortPhrasePositions(phrasePositions);
+        final List<Sentence> sentences = sentenceFactory.parseFileToSentences(new File(sourceTextFile), mergedAndSortedPhrasePositions);
+
+        String contextualSummary = processContextualSummaryForText(mergedAndSortedPhrasePositions, sentences);
+        contextualSummary = contextConfineService.processContextForOutputBeginning(contextualSummary);
+
+        System.out.println(contextualSummary);
     }
 
     protected String processContextualSummaryForText(List<PhrasePosition> phrasePositions, List<Sentence> sentences) {

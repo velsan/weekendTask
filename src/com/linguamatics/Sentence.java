@@ -1,20 +1,34 @@
 package com.linguamatics;
 
+import java.util.List;
+
 public class Sentence {
 
     private static final String WHITESPACE_REGEX = "\\s+";
 
     public Sentence(String text, Long sentenceStart) {
-        this.text = text == null ? "" : text;
+        this.text = text;
+        this.words = text.split(WHITESPACE_REGEX);
         this.sentenceStart = sentenceStart == null ? -1 : sentenceStart;
     }
 
-    private final String text;
+    public Sentence(long sentenceStart, String[] words, List<PhrasePosition> matchingPhrasePositions) {
+        this.sentenceStart = sentenceStart;
+        this.words = words;
+        this.phrasePositions = matchingPhrasePositions;
+    }
+
+//    todo make final
+    private String text;
 
     private final Long sentenceStart;
 
+    private List<PhrasePosition> phrasePositions;
+
+    private String[] words;
+
     public String[] getWords(){
-        return  text.split(WHITESPACE_REGEX);
+        return words;
     }
 
     public Integer getWordCount() {
@@ -31,5 +45,9 @@ public class Sentence {
 
     public Long getSentenceEnd() {
         return sentenceStart + getWordCount();
+    }
+
+    public List<PhrasePosition> getPhrasePositions() {
+        return phrasePositions;
     }
 }
