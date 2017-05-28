@@ -9,13 +9,13 @@ import java.util.Collections;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class BoldTagHighlighterTest {
+public class BoldHTMLTagHighlighterTest {
 
     private HTMLTagHighlighter boldTagHighlighter;
 
     @Before
     public void init(){
-        boldTagHighlighter= new BoldTagHighlighter();
+        boldTagHighlighter= new BoldHTMLTagHighlighter();
     }
 
     @Test

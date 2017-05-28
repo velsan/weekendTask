@@ -4,6 +4,15 @@ import java.util.List;
 
 public abstract class ContextConfineService {
 
+    public String processContextForOutputBeginning(String contextualSummary){
+        if(contextualSummary.startsWith(getReplacementStyle())){
+            return contextualSummary.substring(3);
+        }
+
+        return contextualSummary;
+    }
+
+
     public String confineContextForSentence(Sentence sentence, List<PhrasePosition> phrasePositions){
         boolean[] wordsIncluded = new boolean[sentence.getWordCount()];
 
@@ -15,9 +24,9 @@ public abstract class ContextConfineService {
             final Long phraseStart= phrasePosition.getStartPosition();
             final Long phraseEnd = phrasePosition.getEndPosition();
             int contextStart = (int) (Math.max(sentenceStart, phraseStart - contextWidth) - sentenceStart);
-            int contextEnd = (int) (Math.min(sentenceEnd, phraseEnd + contextStart) - sentenceStart);
+            int contextEnd = (int) (Math.min(sentenceEnd, phraseEnd + contextWidth) - sentenceStart);
 
-            for(int i = contextStart; i<=contextEnd; i++){
+            for(int i = contextStart; i <= contextEnd; i++){
                 wordsIncluded[i] = true;
             }
         });
@@ -28,8 +37,8 @@ public abstract class ContextConfineService {
             if(wordsIncluded[i]){
                 result += words[i] + " ";
             } else if(i != 0){
-                if (!result.endsWith("...")){
-                    result += "...";
+                if (!result.endsWith(getReplacementStyle() + " ")){
+                    result += getReplacementStyle() + " ";
                 }
             }
         }
@@ -38,4 +47,6 @@ public abstract class ContextConfineService {
     }
 
     abstract int getContextWidth();
+
+    abstract String getReplacementStyle();
 }

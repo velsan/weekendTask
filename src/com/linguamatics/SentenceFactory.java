@@ -23,12 +23,13 @@ public class SentenceFactory {
 
     //    The list contains item for each sentence. Key is position of last word in the sentence, value is the sentence
     public List<Sentence> parseTextToSentences(String text) {
-        final String[] sentences = text.split("\\.");
+        final String[] sentences = text.split("\\s+\\.\\s+");
         final List<Sentence> sentencesWithEndPositions = new ArrayList<>();
         long lastWordNumber = 0;
         for (String sentence : sentences) {
             lastWordNumber += sentence.split(WHITESPACE_REGEX).length;
             sentencesWithEndPositions.add(new Sentence(sentence, lastWordNumber));
+            lastWordNumber++;
         }
         return sentencesWithEndPositions;
     }

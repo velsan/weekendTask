@@ -4,19 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PhraseMergeUtil {
+public class PhrasePositionUtil {
 
     public List<PhrasePosition> mergeAndSortPhrasePositions(List<PhrasePosition> phrasePositions) {
-        List<PhrasePosition> sortedPositions = phrasePositions.stream()
+        final List<PhrasePosition> sortedPositions = phrasePositions.stream()
                 .sorted((a, b) -> a.getStartPosition() == b.getStartPosition() ?
                         a.getEndPosition() <= b.getEndPosition() ? -1 : 1 :
                         a.getStartPosition() <= b.getStartPosition() ? -1 : 1).collect(Collectors.toList());
-        List<PhrasePosition> mergedPositions = mergePositions(sortedPositions);
-        return mergedPositions;
+        return mergePositions(sortedPositions);
     }
 
     private List<PhrasePosition> mergePositions(List<PhrasePosition> sortedPositions) {
-        List<PhrasePosition> merged = new ArrayList<>();
+        final List<PhrasePosition> merged = new ArrayList<>();
         int nextPosition = 0;
         while (nextPosition < sortedPositions.size()) {
             nextPosition = mergeOverlapping(sortedPositions, merged, nextPosition);

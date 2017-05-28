@@ -11,8 +11,8 @@ public class ContextualSummaryService {
     public ContextualSummaryService() {
         this.sentenceFactory = new SentenceFactory();
         this.phrasePositionFactory = new PhrasePositionFactory();
-        this.boldTagHighlighter = new BoldTagHighlighter();
-        this.contextConfineService = new FiveWordsContextConfiner();
+        this.boldTagHighlighter = new BoldHTMLTagHighlighter();
+        this.contextConfineService = new FiveWordsContextConfineService();
     }
 
     private final SentenceFactory sentenceFactory;
@@ -34,7 +34,8 @@ public class ContextualSummaryService {
     public void writeContext(List<PhrasePosition> phrasePositions, String sourceTextFile) {
         try {
             final List<Sentence> sentences = sentenceFactory.parseFileToSentences(sourceTextFile);
-            final String contextualSummary = processContextualSummaryForText(phrasePositions, sentences);
+            String contextualSummary = processContextualSummaryForText(phrasePositions, sentences);
+            contextualSummary = contextConfineService.processContextForOutputBeginning(contextualSummary);
             System.out.println(contextualSummary);
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,7 +56,7 @@ public class ContextualSummaryService {
         if (sentencePhrases.isEmpty()) {
             return "";
         }
-        final Sentence sentenceWithHighlightedWords = boldTagHighlighter.addTagToPhrases(sentence, phrasePositions);
+        final Sentence sentenceWithHighlightedWords = boldTagHighlighter.addTagToPhrases(sentence, sentencePhrases);
         return contextConfineService.confineContextForSentence(sentenceWithHighlightedWords, sentencePhrases);
     }
 
