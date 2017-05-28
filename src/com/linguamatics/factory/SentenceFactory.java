@@ -18,7 +18,7 @@ public class SentenceFactory {
     public List<Sentence> parseFileToSentences(File input, List<PhrasePosition> phrasePositions) {
         final Scanner inputScanner = getSentenceScanner(input);
         final List<Sentence> sentences = new ArrayList<>();
-        int sentenceStart = 0;
+        long sentenceStart = 0;
         while (inputScanner.hasNext()) {
             final String sentenceText = inputScanner.next();
             final String[] words = sentenceText.split(WHITESPACE_REGEX);
@@ -33,14 +33,14 @@ public class SentenceFactory {
         return sentences;
     }
 
-    private List<PhrasePosition> matchingPhrasePositions(int currentPosition, int wordsOnLine, List<PhrasePosition> phrasePositions) {
+    private List<PhrasePosition> matchingPhrasePositions(long currentPosition, int wordsOnLine, List<PhrasePosition> phrasePositions) {
         return phrasePositions.stream()
                 .filter(phrasePosition -> containsPhrasePosition(currentPosition, wordsOnLine, phrasePosition.getStartPosition(), phrasePosition.getEndPosition()))
                 .collect(Collectors.toList());
     }
 
-    protected boolean containsPhrasePosition(int sentenceStart, int wordsCount, long phraseContextStart, long phraseContextEnd) {
-        final int sentenceEnd = sentenceStart + wordsCount;
+    protected boolean containsPhrasePosition(long sentenceStart, int wordsCount, long phraseContextStart, long phraseContextEnd) {
+        final long sentenceEnd = sentenceStart + wordsCount;
         return sentenceStart <= phraseContextStart && phraseContextStart <= sentenceEnd ||
                 sentenceStart <= phraseContextEnd && phraseContextEnd <= sentenceEnd;
     }

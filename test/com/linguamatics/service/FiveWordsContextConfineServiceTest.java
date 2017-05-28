@@ -24,7 +24,7 @@ public class FiveWordsContextConfineServiceTest {
     @Test
     public void should_confine_one_sentence(){
         final List<PhrasePosition> phrasePositions = singletonList(new PhrasePosition(7L, 1));
-        final Sentence sentence = new Sentence("We went to the town and saw Jim and Bob in the bar drinking beer", 0L, phrasePositions);
+        final Sentence sentence = new Sentence(0L, "We went to the town and saw Jim and Bob in the bar drinking beer", phrasePositions);
         String contextForSentence = contextConfineService.confineContextForSentence(sentence);
         contextForSentence = contextConfineService.processContextForOutputBeginning(contextForSentence);
         assertThat(contextForSentence, is("to the town and saw Jim and Bob in the bar ..."));
@@ -33,7 +33,7 @@ public class FiveWordsContextConfineServiceTest {
     @Test
     public void should_confine_two_sentences(){
         final List<PhrasePosition> phrasePositions = asList(new PhrasePosition(7L, 1),new PhrasePosition(10L, 1));
-        final Sentence sentence = new Sentence("We went to the town and saw Jim . And Bob in the bar drinking beer and juice", 0L,phrasePositions);
+        final Sentence sentence = new Sentence(0L, "We went to the town and saw Jim . And Bob in the bar drinking beer and juice", phrasePositions);
 
         String contextForSentence = contextConfineService.confineContextForSentence(sentence);
         contextForSentence = contextConfineService.processContextForOutputBeginning(contextForSentence);

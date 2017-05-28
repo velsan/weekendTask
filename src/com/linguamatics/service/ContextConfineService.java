@@ -5,7 +5,21 @@ import com.linguamatics.Sentence;
 
 import java.util.List;
 
+/**
+ * To be used for confining context of sentence, based on given phrases.
+ * Context width and style used for confining should be provided by derived classes
+ */
 public abstract class ContextConfineService {
+
+    /**
+     * @return width of Context
+     */
+    abstract int getContextWidth();
+
+    /**
+     * @return string to be used to replace confined words
+     */
+    abstract String getReplacementStyle();
 
     public String processContextForOutputBeginning(String contextualSummary){
         if(contextualSummary.startsWith(getReplacementStyle())){
@@ -14,7 +28,6 @@ public abstract class ContextConfineService {
 
         return contextualSummary.trim();
     }
-
 
     public String confineContextForSentence(Sentence sentence){
         final boolean[] wordsIncluded = new boolean[sentence.getWordCount()];
@@ -49,8 +62,4 @@ public abstract class ContextConfineService {
 
         return result;
     }
-
-    abstract int getContextWidth();
-
-    abstract String getReplacementStyle();
 }

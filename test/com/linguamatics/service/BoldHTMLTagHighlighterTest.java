@@ -24,7 +24,7 @@ public class BoldHTMLTagHighlighterTest {
     @Test
     public void should_add_bold_tag_to_phrase(){
         final List<PhrasePosition> phrasePosition = singletonList(new PhrasePosition(2L, 2));
-        final Sentence sentence = new Sentence("HAS YOUR UNCLE JAIME EVER TOLD YOU WHAT HAPPENED TO HIM?", 0L, phrasePosition);
+        final Sentence sentence = new Sentence(0L, "HAS YOUR UNCLE JAIME EVER TOLD YOU WHAT HAPPENED TO HIM?", phrasePosition);
         final Sentence highlightedSentence = boldTagHighlighter.addTagToPhrases(sentence);
         assertThat(highlightedSentence.getText(), is("HAS YOUR <b>UNCLE JAIME</b> EVER TOLD YOU WHAT HAPPENED TO HIM?"));
     }
@@ -32,14 +32,14 @@ public class BoldHTMLTagHighlighterTest {
     @Test
     public void should_add_bold_tag_to_word(){
         final List<PhrasePosition> phrasePosition = singletonList(new PhrasePosition(3L, 1));
-        final Sentence sentence = new Sentence("HAS YOUR UNCLE JAIME EVER TOLD YOU WHAT HAPPENED TO HIM?", 0L, phrasePosition);
+        final Sentence sentence = new Sentence(0L, "HAS YOUR UNCLE JAIME EVER TOLD YOU WHAT HAPPENED TO HIM?", phrasePosition);
         final Sentence highlightedSentence = boldTagHighlighter.addTagToPhrases(sentence);
         assertThat(highlightedSentence.getText(), is("HAS YOUR UNCLE <b>JAIME</b> EVER TOLD YOU WHAT HAPPENED TO HIM?"));
     }
 
     @Test
     public void should_handle_no_words_to_highlight(){
-        final Sentence sentence = new Sentence("HAS YOUR UNCLE JAIME EVER TOLD YOU WHAT HAPPENED TO HIM?", 0L, Collections.emptyList());
+        final Sentence sentence = new Sentence(0L, "HAS YOUR UNCLE JAIME EVER TOLD YOU WHAT HAPPENED TO HIM?", Collections.emptyList());
         final Sentence highlightedSentence = boldTagHighlighter.addTagToPhrases(sentence);
         assertThat(highlightedSentence.getText(), is("HAS YOUR UNCLE JAIME EVER TOLD YOU WHAT HAPPENED TO HIM?"));
     }

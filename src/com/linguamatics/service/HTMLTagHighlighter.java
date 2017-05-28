@@ -44,6 +44,6 @@ public abstract class HTMLTagHighlighter {
             sentenceWords[phraseEndPosition] = phraseToHighlightEnd + "</" + getTag() +">";
         });
 
-        return new Sentence(stream(sentenceWords).collect(joining(" ")), sentence.getSentenceStart(), sentencePhrasePositions);
+        return new Sentence(sentence.getSentenceStart(), stream(sentenceWords).collect(joining(" ")), sentencePhrasePositions);
     }
 }

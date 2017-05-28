@@ -6,20 +6,19 @@ public class Sentence {
 
     private static final String WHITESPACE_REGEX = "\\s+";
 
-    public Sentence(String text, Long sentenceStart, List<PhrasePosition> phrasePositions) {
+    public Sentence(Long sentenceStart, String text, List<PhrasePosition> phrasePositions) {
         this.text = text;
         this.phrasePositions = phrasePositions;
         this.words = text.split(WHITESPACE_REGEX);
         this.sentenceStart = sentenceStart == null ? -1 : sentenceStart;
     }
 
-    public Sentence(long sentenceStart, String[] words, List<PhrasePosition> matchingPhrasePositions) {
+    public Sentence(Long sentenceStart, String[] words, List<PhrasePosition> phrasePositions) {
         this.sentenceStart = sentenceStart;
         this.words = words;
-        this.phrasePositions = matchingPhrasePositions;
+        this.phrasePositions = phrasePositions;
     }
 
-//    todo make final
     private String text;
 
     private final Long sentenceStart;

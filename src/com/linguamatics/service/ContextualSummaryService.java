@@ -11,6 +11,7 @@ import java.util.List;
 
 import static com.linguamatics.util.PhrasePositionUtil.mergeAndSortPhrasePositions;
 
+
 public class ContextualSummaryService {
 
     public ContextualSummaryService() {

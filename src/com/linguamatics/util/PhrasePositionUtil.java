@@ -8,7 +8,13 @@ import java.util.stream.Collectors;
 
 public class PhrasePositionUtil {
 
-    public  static List<PhrasePosition> mergeAndSortPhrasePositions(List<PhrasePosition> phrasePositions) {
+    /**
+     * Sorts {@see PhrasePosition} object by their position in ascending order.
+     * Merges overlapping  {@see PhrasePosition}
+     * @param phrasePositions {@see PhrasePosition} to sort and merge
+     * @return
+     */
+    public static List<PhrasePosition> mergeAndSortPhrasePositions(List<PhrasePosition> phrasePositions) {
         final List<PhrasePosition> sortedPositions = phrasePositions.stream()
                 .sorted((a, b) -> a.getStartPosition() == b.getStartPosition() ?
                         a.getEndPosition() <= b.getEndPosition() ? -1 : 1 :
