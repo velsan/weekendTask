@@ -1,7 +1,5 @@
 package com.linguamatics.service;
 
-import com.linguamatics.service.HTMLTagHighlighter;
-
 /**
  * Highlights phrases in a sentence with a <b>bold style</b>
  * {@see HTMLTagHighlighter}

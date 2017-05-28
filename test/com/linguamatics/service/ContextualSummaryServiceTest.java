@@ -45,8 +45,8 @@ public class ContextualSummaryServiceTest {
     public void should_process_final_test(){
         final ByteArrayOutputStream myOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(myOut));
-        final String sourceTextPath = ClassLoader.getSystemResource("csv/test.csv").getPath();
-        final String wordPositionsPath = ClassLoader.getSystemResource("csv/phrasePositions.txt").getPath();
+        final String sourceTextPath = ClassLoader.getSystemResource("test.csv").getPath();
+        final String wordPositionsPath = ClassLoader.getSystemResource("phrasePositions.txt").getPath();
         contextualSummaryService.processContextSummary(wordPositionsPath, sourceTextPath);
         assertThat(myOut.toString(), containsString("<b>Sir Humphrey:</b> Prime Minister, I must protest ... the function " +
                 "of government within <b>Her Majesty's</b> United Kingdom of Great Britain ... " +

@@ -1,8 +1,6 @@
 package com.linguamatics.service;
 
 
-import com.linguamatics.service.ContextConfineService;
-
 public class FiveWordsContextConfineService extends ContextConfineService {
 
     private static final int CONTEXT_WIDTH = 5;

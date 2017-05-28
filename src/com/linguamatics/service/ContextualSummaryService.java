@@ -1,6 +1,7 @@
 package com.linguamatics.service;
 
-import com.linguamatics.*;
+import com.linguamatics.PhrasePosition;
+import com.linguamatics.Sentence;
 import com.linguamatics.factory.PhrasePositionFactory;
 import com.linguamatics.factory.SentenceFactory;
 
@@ -9,7 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static com.linguamatics.util.PhrasePositionUtil.mergeAndSortPhrasePositions;
-import static java.util.stream.Collectors.toList;
 
 public class ContextualSummaryService {
 
@@ -33,7 +33,6 @@ public class ContextualSummaryService {
         writeContext(wordPositions, new File(sourceTextFile));
     }
 
-    //    this parameter will be linked list
     public void writeContext(List<PhrasePosition> phrasePositions, File sourceTextFile) {
         final List<PhrasePosition> mergedAndSortedPhrasePositions = mergeAndSortPhrasePositions(phrasePositions);
         final List<Sentence> sentences = sentenceFactory.parseFileToSentences(sourceTextFile, mergedAndSortedPhrasePositions);
@@ -54,19 +53,7 @@ public class ContextualSummaryService {
     }
 
     private String processContextualSummaryForSentence(List<PhrasePosition> phrasePositions, Sentence sentence) {
-        final List<PhrasePosition> sentencePhrases = getPhrasesForSentence(sentence, phrasePositions);
-        if (sentencePhrases.isEmpty()) {
-            return "";
-        }
         final Sentence sentenceWithHighlightedWords = boldTagHighlighter.addTagToPhrases(sentence);
         return contextConfineService.confineContextForSentence(sentenceWithHighlightedWords);
-    }
-
-    private List<PhrasePosition> getPhrasesForSentence(Sentence sentence, List<PhrasePosition> phrasePositions) {
-        final Long sentenceStart = sentence.getSentenceStart();
-        final Long sentenceEnd = sentence.getSentenceEnd();
-        return phrasePositions.stream()
-                .filter(phrasePosition -> phrasePosition.getStartPosition() >= sentenceStart && phrasePosition.getEndPosition() <= sentenceEnd)
-                .collect(toList());
     }
 }

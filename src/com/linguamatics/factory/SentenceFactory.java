@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class SentenceFactory {
 
@@ -19,9 +20,9 @@ public class SentenceFactory {
         final List<Sentence> sentences = new ArrayList<>();
         int sentenceStart = 0;
         while (inputScanner.hasNext()) {
-            String sentenceText = inputScanner.next();
-            String[] words = sentenceText.split(WHITESPACE_REGEX);
-            List<PhrasePosition> matchingPhrasePositions = matchingPhrasePositions(sentenceStart, words.length, phrasePositions);
+            final String sentenceText = inputScanner.next();
+            final String[] words = sentenceText.split(WHITESPACE_REGEX);
+            final List<PhrasePosition> matchingPhrasePositions = matchingPhrasePositions(sentenceStart, words.length, phrasePositions);
             if (matchingPhrasePositions.size() > 0) {
                 final Sentence sentence = new Sentence(sentenceStart, words, matchingPhrasePositions);
                 sentences.add(sentence);
@@ -33,24 +34,20 @@ public class SentenceFactory {
     }
 
     private List<PhrasePosition> matchingPhrasePositions(int currentPosition, int wordsOnLine, List<PhrasePosition> phrasePositions) {
-        List<PhrasePosition> matchingPhrasePositions = new ArrayList<>();
-        for (PhrasePosition phrasePosition : phrasePositions) {
-            if (containsPhrasePosition(currentPosition, wordsOnLine, phrasePosition.getStartPosition(), phrasePosition.getEndPosition())) {
-                matchingPhrasePositions.add(phrasePosition);
-            }
-        }
-        return matchingPhrasePositions;
+        return phrasePositions.stream()
+                .filter(phrasePosition -> containsPhrasePosition(currentPosition, wordsOnLine, phrasePosition.getStartPosition(), phrasePosition.getEndPosition()))
+                .collect(Collectors.toList());
     }
 
     protected boolean containsPhrasePosition(int sentenceStart, int wordsCount, long phraseContextStart, long phraseContextEnd) {
-        int sentenceEnd = sentenceStart + wordsCount;
+        final int sentenceEnd = sentenceStart + wordsCount;
         return sentenceStart <= phraseContextStart && phraseContextStart <= sentenceEnd ||
                 sentenceStart <= phraseContextEnd && phraseContextEnd <= sentenceEnd;
     }
 
     private Scanner getSentenceScanner(File input) {
         try {
-            Scanner scanner = new Scanner(input);
+            final Scanner scanner = new Scanner(input);
             scanner.useDelimiter(SENTENCE_END_REGEX);
             return scanner;
         } catch (FileNotFoundException e) {

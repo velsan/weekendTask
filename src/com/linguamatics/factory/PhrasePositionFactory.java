@@ -13,8 +13,6 @@ public class PhrasePositionFactory {
 
     private static final String COMMA = ",";
 
-    //        read the list of word positions from a separate input file contains pairs of comma-separated integers, one pair per line, no blank line
-//        construct the linked list from this input,
     public LinkedList<PhrasePosition> parsePhrasePositionsFromCSV(String positionsFile) {
         try {
             final Path positionsPath = Paths.get(positionsFile);
