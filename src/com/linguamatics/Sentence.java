@@ -59,7 +59,7 @@ public class Sentence {
     }
 
     public Long getSentenceEnd() {
-        return sentenceStart + getWordCount();
+        return sentenceStart + getWordCount() -1;
     }
 
     public List<PhrasePosition> getPhrasePositions() {

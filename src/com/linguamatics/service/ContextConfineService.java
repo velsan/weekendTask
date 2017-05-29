@@ -48,18 +48,25 @@ public abstract class ContextConfineService {
             }
         });
 
-        String result = "";
+        String sentenceText = "";
         final String[] words = sentence.getWords();
         for(int i = 0; i < sentence.getWordCount(); i++){
             if(wordsIncluded[i]){
-                result += words[i] + " ";
+                sentenceText += words[i] + " ";
             } else if(i != 0){
-                if (!result.endsWith(getReplacementStyle() + " ")){
-                    result += getReplacementStyle() + " ";
+                if (!sentenceText.endsWith(getReplacementStyle() + " ")){
+                    sentenceText += getReplacementStyle() + " ";
                 }
             }
         }
 
-        return result;
+        return  endTheSentence(sentenceText);
+    }
+
+    private String endTheSentence(String sentenceText) {
+        if(!sentenceText.endsWith(getReplacementStyle() + " ")){
+            sentenceText += ". ";
+        }
+        return sentenceText;
     }
 }

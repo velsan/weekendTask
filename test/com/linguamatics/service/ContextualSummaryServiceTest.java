@@ -58,7 +58,8 @@ public class ContextualSummaryServiceTest {
         final String sourceTextPath = ClassLoader.getSystemResource("text2.txt").getPath();
         final String wordPositionsPath = ClassLoader.getSystemResource("phrasePositions2.txt").getPath();
         contextualSummaryService.processContextSummary(wordPositionsPath, sourceTextPath);
-        assertThat(out.toString(), containsString("<b>Episode One: Open Government</b> <b>Hacker:</b> Who else is in this ... <b>Sir Humphrey:</b> Well briefly, sir, I am ..."));
+        assertThat(out.toString(), containsString("<b>Episode One: Open Government</b> <b>Hacker:</b> Who else is in " +
+                "this ... <b>Sir Humphrey:</b> Well briefly, sir, I am ... <b>Hacker:</b> Can they all type? . <b>Sir Humphrey:</b> None of us can type ."));
     }
 
     @Test

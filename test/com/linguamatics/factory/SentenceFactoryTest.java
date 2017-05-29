@@ -72,6 +72,8 @@ public class SentenceFactoryTest {
         assertThat(sentences.size(), is(2));
         assertThat(sentences.get(0).getPhrasePositions().size(), is(1));
         assertThat(sentences.get(0).getSentenceStart(), is(0L));
+        assertThat(sentences.get(0).getSentenceEnd(), is(0L));
         assertThat(sentences.get(1).getSentenceStart(), is(2L));
+        assertThat(sentences.get(1).getSentenceEnd(), is(2L));
     }
 }
