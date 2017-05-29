@@ -25,7 +25,14 @@ public class SentenceFactory {
     public List<Sentence> parseFileToSentences(File input, List<PhrasePosition> phrasePositions) {
         phrasePositions = PhrasePositionUtil.mergeAndSortPhrasePositions(phrasePositions);
         final Scanner inputScanner = getSentenceScanner(input);
+        try {
+            return getSentences(phrasePositions, inputScanner);
+        } finally {
+            inputScanner.close();
+        }
+    }
 
+    private List<Sentence> getSentences(List<PhrasePosition> phrasePositions, Scanner inputScanner) {
         final List<Sentence> sentences = new ArrayList<>();
 
         long sentenceStart = 0;
@@ -42,7 +49,6 @@ public class SentenceFactory {
             }
             sentenceStart = sentenceStart + words.length + 1;
         }
-
         return sentences;
     }
 

@@ -4,8 +4,6 @@ import com.linguamatics.service.ContextualSummaryService;
 
 public class ContextualSummariesApplication {
 
-    //    will take filepath of the source text (mandatory)
-//    will take filepath of file with the words positions (mandatory)
     public static void main(String[] args) {
         validateArguments(args);
 
