@@ -59,7 +59,17 @@ public class ContextualSummaryServiceTest {
         final String wordPositionsPath = ClassLoader.getSystemResource("phrasePositions2.txt").getPath();
         contextualSummaryService.processContextSummary(wordPositionsPath, sourceTextPath);
         assertThat(out.toString(), containsString("<b>Episode One: Open Government</b> <b>Hacker:</b> Who else is in " +
-                "this ... <b>Sir Humphrey:</b> Well briefly, sir, I am ... <b>Hacker:</b> Can they all type? . <b>Sir Humphrey:</b> None of us can type ."));
+                "this ... <b>Sir Humphrey:</b> Well briefly, sir, I am ... <b>Hacker:</b> Can they all type? . " +
+                "<b>Sir Humphrey:</b> None of us can type . <b>Minister:</b> Pity, we could have opened ... " +
+                "<b>Sir Humphrey:</b> Very droll, Minister . <b>Hacker:</b> I suppose they all say ... " +
+                "<b>Sir Humphrey:</b> Certainly not, Minister . <b>Episode One: The Grand Design</b> . " +
+                "<b>Sir Humphrey:</b> Open government, Prime Minister, Freedom ... " +
+                "<b>Episode One: The Grand Design</b> . <b>Sir Humphrey:</b> With Trident we could obliterate ... " +
+                "<b>Hacker:</b> I don't want to obliterate ... <b>Sir Humphrey:</b> But it's a deterrent . <b>Hacker:</b> It's" +
+                " a bluff . <b>Sir Humphrey:</b> Yes, but they don't know ... <b>Hacker:</b> They probably do . " +
+                "<b>Sir Humphrey:</b> Yes, they probably know that ... <b>Hacker:</b> They probably certainly know that ... " +
+                "<b>Sir Humphrey:</b> Yes, but even though they ... <b>Jim Hacker:</b> When you give your evidence ... " +
+                "<b>Sir Humphrey:</b> Well Minister, if you ask ..."));
     }
 
     @Test
