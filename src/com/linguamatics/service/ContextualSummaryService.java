@@ -9,8 +9,6 @@ import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.linguamatics.util.PhrasePositionUtil.mergeAndSortPhrasePositions;
-
 
 public class ContextualSummaryService {
 
@@ -35,25 +33,24 @@ public class ContextualSummaryService {
     }
 
     public void writeContext(List<PhrasePosition> phrasePositions, File sourceTextFile) {
-        final List<PhrasePosition> mergedAndSortedPhrasePositions = mergeAndSortPhrasePositions(phrasePositions);
-        final List<Sentence> sentences = sentenceFactory.parseFileToSentences(sourceTextFile, mergedAndSortedPhrasePositions);
+        final List<Sentence> sentences = sentenceFactory.parseFileToSentences(sourceTextFile, phrasePositions);
 
-        String contextualSummary = processContextualSummaryForText(mergedAndSortedPhrasePositions, sentences);
+        String contextualSummary = processContextualSummaryForText(sentences);
         contextualSummary = contextConfineService.processContextForOutputBeginning(contextualSummary);
 
         System.out.println(contextualSummary);
     }
 
-    protected String processContextualSummaryForText(List<PhrasePosition> phrasePositions, List<Sentence> sentences) {
+    protected String processContextualSummaryForText(List<Sentence> sentences) {
         String result = "";
         for (Sentence sentence : sentences) {
-            final String processedSentence = processContextualSummaryForSentence(phrasePositions, sentence);
+            final String processedSentence = processContextualSummaryForSentence(sentence);
             result += processedSentence.isEmpty() ? "" : processedSentence;
         }
         return result;
     }
 
-    private String processContextualSummaryForSentence(List<PhrasePosition> phrasePositions, Sentence sentence) {
+    private String processContextualSummaryForSentence(Sentence sentence) {
         final Sentence sentenceWithHighlightedWords = boldTagHighlighter.addTagToPhrases(sentence);
         return contextConfineService.confineContextForSentence(sentenceWithHighlightedWords);
     }

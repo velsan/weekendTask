@@ -24,8 +24,8 @@ public class SentenceFactoryTest {
 
     @Test
     public void should_find_if_line_contains_phrase() throws Exception {
-        assertThat(sentenceFactory.containsPhrasePosition(5, 4, 6, 100), is(true));
-        assertThat(sentenceFactory.containsPhrasePosition(34, 5, 44, 1), is(false));
+        assertThat(sentenceFactory.containsPhrasePosition(5, 4, new PhrasePosition(6l, 100)), is(true));
+        assertThat(sentenceFactory.containsPhrasePosition(34, 5, new PhrasePosition(44l, 1)), is(false));
     }
 
     @Test
