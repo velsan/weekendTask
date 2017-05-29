@@ -24,7 +24,7 @@ public class SentenceFactoryTest {
 
     @Test
     public void should_find_if_line_contains_phrase() throws Exception {
-        assertThat(sentenceFactory.containsPhrasePosition(5, 4, new PhrasePosition(6l, 100)), is(true));
+        assertThat(sentenceFactory.containsPhrasePosition(5, 4, new PhrasePosition(6l, 2)), is(true));
         assertThat(sentenceFactory.containsPhrasePosition(34, 5, new PhrasePosition(44l, 1)), is(false));
     }
 
@@ -75,5 +75,13 @@ public class SentenceFactoryTest {
         assertThat(sentences.get(0).getSentenceEnd(), is(0L));
         assertThat(sentences.get(1).getSentenceStart(), is(2L));
         assertThat(sentences.get(1).getSentenceEnd(), is(2L));
+    }
+
+    @Test
+    public void should_ignore_phrases_crossing_sentence_boundaries() {
+        assertThat(sentenceFactory.containsPhrasePosition(5, 4, new PhrasePosition(8l, 2)), is(false));
+        assertThat(sentenceFactory.containsPhrasePosition(5, 4, new PhrasePosition(8l, 1)), is(true));
+        assertThat(sentenceFactory.containsPhrasePosition(5, 4, new PhrasePosition(4l, 2)), is(false));
+        assertThat(sentenceFactory.containsPhrasePosition(5, 4, new PhrasePosition(5l, 1)), is(true));
     }
 }

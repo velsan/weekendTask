@@ -55,8 +55,8 @@ public class SentenceFactory {
     }
 
     protected boolean containsPhrasePosition(long sentenceStart, int wordsCount, PhrasePosition phrasePosition) {
-        final long sentenceEnd = sentenceStart + wordsCount;
-        return sentenceStart <= phrasePosition.getStartPosition() && phrasePosition.getStartPosition() <= sentenceEnd ||
+        final long sentenceEnd = sentenceStart + wordsCount - 1;
+        return sentenceStart <= phrasePosition.getStartPosition() && phrasePosition.getStartPosition() <= sentenceEnd &&
                 sentenceStart <= phrasePosition.getEndPosition() && phrasePosition.getEndPosition() <= sentenceEnd;
     }
 

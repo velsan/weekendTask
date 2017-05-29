@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8425cea0-369a-4f10-9b26-64c53b912950" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/phrasePositions2.txt" afterPath="$PROJECT_DIR$/resources/phrasePositions2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/linguamatics/service/ContextualSummaryServiceTest.java" afterPath="$PROJECT_DIR$/test/com/linguamatics/service/ContextualSummaryServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/linguamatics/factory/SentenceFactory.java" afterPath="$PROJECT_DIR$/src/com/linguamatics/factory/SentenceFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/linguamatics/factory/SentenceFactoryTest.java" afterPath="$PROJECT_DIR$/test/com/linguamatics/factory/SentenceFactoryTest.java" />
     </list>
     <ignored path="Linguamatics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ContextualSummaryServiceTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ContextualSummaryServiceTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/linguamatics/service/ContextualSummaryServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="37" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.14150943">
+              <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -58,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phrasePositions2.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="phrasePositions2.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/phrasePositions2.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6226415">
+            <state vertical-scroll-proportion="0.0">
               <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding />
             </state>
@@ -73,6 +73,38 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SentenceFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/linguamatics/factory/SentenceFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="58" column="120" selection-start-line="58" selection-start-column="118" selection-end-line="58" selection-end-column="120" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SentenceFactoryTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/com/linguamatics/factory/SentenceFactoryTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="84" column="102" selection-start-line="84" selection-start-column="102" selection-end-line="84" selection-end-column="102" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MatcherAssert.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/lib/hamcrest-core-1.3.jar!/org/hamcrest/MatcherAssert.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.928572">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -144,12 +176,12 @@
         <option value="$PROJECT_DIR$/src/com/linguamatics/ContextualSummariesApplication.java" />
         <option value="$PROJECT_DIR$/src/com/linguamatics/service/ContextualSummaryService.java" />
         <option value="$PROJECT_DIR$/src/com/linguamatics/Sentence.java" />
-        <option value="$PROJECT_DIR$/test/com/linguamatics/factory/SentenceFactoryTest.java" />
         <option value="$PROJECT_DIR$/src/com/linguamatics/service/ContextConfineService.java" />
-        <option value="$PROJECT_DIR$/src/com/linguamatics/factory/SentenceFactory.java" />
         <option value="$PROJECT_DIR$/resources/text2.txt" />
         <option value="$PROJECT_DIR$/test/com/linguamatics/service/ContextualSummaryServiceTest.java" />
         <option value="$PROJECT_DIR$/resources/phrasePositions2.txt" />
+        <option value="$PROJECT_DIR$/src/com/linguamatics/factory/SentenceFactory.java" />
+        <option value="$PROJECT_DIR$/test/com/linguamatics/factory/SentenceFactoryTest.java" />
       </list>
     </option>
   </component>
@@ -421,7 +453,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linguamatics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Linguamatics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Linguamatics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linguamatics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="factory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -436,32 +494,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="internalTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sourceTextFiles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Linguamatics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Linguamatics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="internalTests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -501,7 +533,7 @@
       <recent name="$PROJECT_DIR$/resources/csv" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Linguamatics">
+  <component name="RunManager" selected="Application.ContextualSummariesApplication">
     <configuration default="false" name="All in Linguamatics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Linguamatics" />
@@ -1096,7 +1128,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.linguamatics.ContextualSummariesApplication" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/resources/text1.txt $PROJECT_DIR$/resources/phrasePositions1.txt" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/resources/text2.txt $PROJECT_DIR$/resources/phrasePositions2.txt" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -1117,8 +1149,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in Linguamatics" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ContextualSummaryServiceTest.should_process_more_sentences_3" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ContextualSummaryServiceTest.should_process_more_sentences_3" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in Linguamatics" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.ContextualSummaryServiceTest" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.ContextualSummaryServiceTest.should_process_empty_file" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ContextualSummaryServiceTest.should_process_final_test" />
@@ -1143,7 +1175,7 @@
       <workItem from="1495800480714" duration="19985000" />
       <workItem from="1495861810396" duration="33252000" />
       <workItem from="1495947686830" duration="45557000" />
-      <workItem from="1496033364678" duration="8649000" />
+      <workItem from="1496033364678" duration="9036000" />
     </task>
     <servers />
   </component>
@@ -1157,14 +1189,11 @@
     <history-entry file="All_in_Linguamatics - 2017.05.29 at 08h 13m 30s.xml">
       <configuration name="All in Linguamatics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ContextualSummaryServiceTest_should_process_more_sentences_3 - 2017.05.29 at 08h 03m 00s.xml">
-      <configuration name="ContextualSummaryServiceTest.should_process_more_sentences_3" configurationId="JUnit" />
+    <history-entry file="All_in_Linguamatics - 2017.05.29 at 08h 15m 03s.xml">
+      <configuration name="All in Linguamatics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ContextualSummaryServiceTest_should_process_more_sentences_3 - 2017.05.29 at 08h 04m 11s.xml">
-      <configuration name="ContextualSummaryServiceTest.should_process_more_sentences_3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ContextualSummaryServiceTest_should_process_more_sentences_3 - 2017.05.29 at 08h 05m 00s.xml">
-      <configuration name="ContextualSummaryServiceTest.should_process_more_sentences_3" configurationId="JUnit" />
+    <history-entry file="All_in_Linguamatics - 2017.05.29 at 08h 16m 11s.xml">
+      <configuration name="All in Linguamatics" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ContextualSummaryServiceTest_should_process_more_sentences_3 - 2017.05.29 at 08h 05m 55s.xml">
       <configuration name="ContextualSummaryServiceTest.should_process_more_sentences_3" configurationId="JUnit" />
@@ -1178,9 +1207,12 @@
     <history-entry file="ContextualSummaryServiceTest_should_process_more_sentences_3 - 2017.05.29 at 08h 10m 38s.xml">
       <configuration name="ContextualSummaryServiceTest.should_process_more_sentences_3" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ContextualSummaryServiceTest_should_process_more_sentences_3 - 2017.05.29 at 08h 17m 07s.xml">
+      <configuration name="ContextualSummaryServiceTest.should_process_more_sentences_3" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107443000" />
+    <option name="totallyTimeSpent" value="107830000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1193,7 +1225,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1055" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1590,24 +1622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/linguamatics/factory/SentenceFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/linguamatics/factory/SentenceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7861635">
-          <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/linguamatics/service/ContextConfineService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1632,18 +1646,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/linguamatics/service/ContextualSummaryServiceTest.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/hamcrest-core-1.3.jar!/org/hamcrest/MatcherAssert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.928572">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/linguamatics/factory/SentenceFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="37" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
+          <caret line="84" column="102" selection-start-line="84" selection-start-column="102" selection-end-line="84" selection-end-column="102" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/linguamatics/factory/SentenceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="120" selection-start-line="58" selection-start-column="118" selection-end-line="58" selection-end-column="120" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/phrasePositions2.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6226415">
+        <state vertical-scroll-proportion="0.0">
           <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/linguamatics/service/ContextualSummaryServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14150943">
+          <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
           <folding />
         </state>
       </provider>
