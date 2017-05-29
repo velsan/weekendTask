@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.linguamatics.service.ContextConfineService</OriginalElement>
+  <nodes>
+    <node x="350.41379310344837" y="421.7093596059113">com.linguamatics.factory.SentenceFactory</node>
+    <node x="916.0862068965521" y="259.9950738916257">com.linguamatics.service.HTMLTagHighlighter</node>
+    <node x="-459.4433497536946" y="351.40886699507394">com.linguamatics.service.ContextConfineService</node>
+    <node x="-461.9408866995074" y="586.3300492610836">com.linguamatics.service.FiveWordsContextConfineService</node>
+    <node x="-10.684729064039175" y="596.2266009852216">com.linguamatics.PhrasePosition</node>
+    <node x="958.6354679802953" y="488.09359605911317">com.linguamatics.service.BoldHTMLTagHighlighter</node>
+    <node x="490.3103448275863" y="638.472906403941">com.linguamatics.Sentence</node>
+    <node x="33.32019704433492" y="129.16748768472905">com.linguamatics.service.ContextualSummaryService</node>
+    <node x="102.71921182265999" y="27.91133004926109">com.linguamatics.ContextualSummariesApplication</node>
+    <node x="-91.41379310344837" y="468.35960591133005">com.linguamatics.factory.PhrasePositionFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.linguamatics.factory.SentenceFactory" target="com.linguamatics.Sentence">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.linguamatics.factory.PhrasePositionFactory" target="com.linguamatics.PhrasePosition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.linguamatics.Sentence" target="com.linguamatics.PhrasePosition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.linguamatics.service.ContextualSummaryService" target="com.linguamatics.service.FiveWordsContextConfineService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.linguamatics.service.ContextualSummaryService" target="com.linguamatics.service.ContextConfineService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.linguamatics.service.ContextualSummaryService" target="com.linguamatics.service.BoldHTMLTagHighlighter">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.linguamatics.service.ContextualSummaryService" target="com.linguamatics.service.HTMLTagHighlighter">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.linguamatics.service.FiveWordsContextConfineService" target="com.linguamatics.service.ContextConfineService">
+      <point x="0.0" y="-38.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="com.linguamatics.service.ContextualSummaryService" target="com.linguamatics.factory.PhrasePositionFactory">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.linguamatics.service.BoldHTMLTagHighlighter" target="com.linguamatics.service.HTMLTagHighlighter">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="com.linguamatics.service.ContextualSummaryService" target="com.linguamatics.factory.SentenceFactory">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.linguamatics.ContextualSummariesApplication" target="com.linguamatics.service.ContextualSummaryService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.linguamatics.service.HTMLTagHighlighter" target="com.linguamatics.Sentence">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8423236514522822" x="346.78325123152706" y="515.743842364532" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>protected</VISIBILITY>
+</Diagram>
+

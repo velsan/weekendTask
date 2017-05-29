@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="vojtech_suchy:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/vojtech_suchy_jar</output-path>
+    <root id="archive" name="Linguamatics.jar">
+      <element id="module-output" name="Linguamatics" />
+    </root>
+  </artifact>
+</component>

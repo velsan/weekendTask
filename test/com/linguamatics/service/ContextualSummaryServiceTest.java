@@ -1,6 +1,5 @@
 package com.linguamatics.service;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,8 +25,8 @@ public class ContextualSummaryServiceTest {
 
     @Test
     public void should_process_one_sentence(){
-        final String sourceTextPath = ClassLoader.getSystemResource("internalTests/sourceTextFiles/oneSentence.csv").getPath();
-        final String wordPositionsPath = ClassLoader.getSystemResource("internalTests/phrasePositionsFiles/wordPositionsTest.csv").getPath();
+        final String sourceTextPath = ClassLoader.getSystemResource("internalTests/sourceTextFiles/oneSentence.txt").getPath();
+        final String wordPositionsPath = ClassLoader.getSystemResource("internalTests/phrasePositionsFiles/wordPositionsTest.txt").getPath();
         contextualSummaryService.processContextSummary(wordPositionsPath, sourceTextPath);
         assertThat(out.toString(), containsString("went to town and saw <b>Jim</b> and <b>Bob</b> and Uncle Tom Cobbley" +
                 " and ... who had been released from <b>Wormwood Scrubs</b> the day before I think ..."));
@@ -35,8 +34,8 @@ public class ContextualSummaryServiceTest {
 
     @Test
     public void should_process_more_sentences(){
-        final String sourceTextPath = ClassLoader.getSystemResource("internalTests/sourceTextFiles/source.csv").getPath();
-        final String wordPositionsPath = ClassLoader.getSystemResource("internalTests/phrasePositionsFiles/sourcePositions.csv").getPath();
+        final String sourceTextPath = ClassLoader.getSystemResource("internalTests/sourceTextFiles/source.txt").getPath();
+        final String wordPositionsPath = ClassLoader.getSystemResource("internalTests/phrasePositionsFiles/sourcePositions.txt").getPath();
         contextualSummaryService.processContextSummary(wordPositionsPath, sourceTextPath);
         assertThat(out.toString(), containsString("went to town and saw <b>Jim</b> and <b>Bob</b> and Uncle Tom Cobbley" +
                 " and ... who had been released from <b>Wormwood Scrubs</b> the day before I think ... Over the " +
@@ -74,8 +73,8 @@ public class ContextualSummaryServiceTest {
 
     @Test
     public void should_process_empty_file(){
-        final String sourceTextPath = ClassLoader.getSystemResource("internalTests/sourceTextFiles/emptyFile.csv").getPath();
-        final String wordPositionsPath = ClassLoader.getSystemResource("internalTests/phrasePositionsFiles/wordPositionsTest.csv").getPath();
+        final String sourceTextPath = ClassLoader.getSystemResource("internalTests/sourceTextFiles/emptyFile.txt").getPath();
+        final String wordPositionsPath = ClassLoader.getSystemResource("internalTests/phrasePositionsFiles/wordPositionsTest.txt").getPath();
         contextualSummaryService.processContextSummary(wordPositionsPath, sourceTextPath);
         assertThat(out.toString().trim().isEmpty(), is(true));
     }
